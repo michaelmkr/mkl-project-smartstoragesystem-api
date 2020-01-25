@@ -5,9 +5,9 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /products:
+  '/products/{id}':
     get:
-      summary: Your GET endpoint
+      summary: '/products/{id}'
       tags: []
       responses:
         '200':
@@ -17,6 +17,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Product'
       operationId: get-products
+    parameters:
+      - schema:
+          type: integer
+        name: id
+        in: path
+        required: true
   /store:
     post:
       summary: /store
