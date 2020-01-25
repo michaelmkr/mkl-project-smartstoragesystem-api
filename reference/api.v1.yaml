@@ -63,3 +63,4 @@ components:
         comments:
           type: string
       description: ''
+  securitySchemes: {}
