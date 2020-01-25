@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /products:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+      operationId: get-products
+  /store:
+    post:
+      summary: /store
+      operationId: post-store
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QR-Payload'
+    parameters: []
+components:
+  schemas:
+    Product:
+      title: 'Model: Product'
+      type: object
+      properties:
+        id:
+          type: string
+        information:
+          $ref: '#/components/schemas/QR-Payload'
+        mdd:
+          type: string
+        storagePlace:
+          type: object
+    QR-Payload:
+      title: 'Model: QR-Payload'
+      type: object
+      properties:
+        fruitType:
+          type: string
+        amount:
+          type: integer
+        storageDate:
+          type: string
+        comments:
+          type: string
+      description: ''
